@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Editar usuário</h1>
+
+        <!-- Os campos já aparecem preenchidos -->
+        <form method="POST">
+            <label>Nome</label>
+            <input name="nome" value="{{ usuario['nome'] }}" required>
+
+            <label>E-mail</label>
+            <input type="email" name="email" value="{{ usuario['email'] }}" required>
+
+            <label>Nova senha (deixe vazia para manter a atual)</label>
+            <input type="password" name="senha">
+
+            <button type="submit">Salvar alterações</button>
+        </form>
+
+        <a href="/usuarios">Voltar</a>
+    </main>
+</body>
+</html>

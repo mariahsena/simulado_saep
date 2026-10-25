@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar paciente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Editar paciente</h1>
+
+        <form method="POST">
+            <label>Nome</label>
+            <input name="nome" value="{{ paciente['nome'] }}" required>
+
+            <label>CPF</label>
+            <input name="cpf" value="{{ paciente['cpf'] or '' }}" required>
+
+            <label>Data de nascimento</label>
+            <input type="date" name="data_nascimento"
+                   value="{{ paciente['data_nascimento'] or '' }}">
+
+            <label>Telefone</label>
+            <input name="telefone" value="{{ paciente['telefone'] or '' }}">
+
+            <label>E-mail</label>
+            <input type="email" name="email" value="{{ paciente['email'] or '' }}">
+
+            <button type="submit">Salvar alterações</button>
+        </form>
+
+        <a href="/pacientes">Voltar</a>
+    </main>
+</body>
+</html>

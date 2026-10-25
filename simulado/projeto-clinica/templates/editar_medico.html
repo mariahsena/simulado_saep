@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar médico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Editar médico</h1>
+
+        <form method="POST">
+            <label>Nome</label>
+            <input name="nome" value="{{ medico['nome'] }}" required>
+
+            <label>CRM</label>
+            <input name="crm" value="{{ medico['crm'] }}" required>
+
+            <label>Especialidade</label>
+            <input name="especialidade" value="{{ medico['especialidade'] or '' }}">
+
+            <label>E-mail</label>
+            <input type="email" name="email" value="{{ medico['email'] or '' }}">
+
+            <button type="submit">Salvar alterações</button>
+        </form>
+
+        <a href="/medicos">Voltar</a>
+    </main>
+</body>
+</html>

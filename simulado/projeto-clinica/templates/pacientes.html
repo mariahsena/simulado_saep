@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="menu">
+        <a href="/painel">Início</a>
+        <a href="/usuarios">Usuários</a>
+        <a href="/medicos">Médicos</a>
+        <a href="/pacientes">Pacientes</a>
+        <a href="/agendamentos">Agendamentos</a>
+        <a href="/sair">Sair</a>
+    </nav>
+
+    <main class="container">
+        <h1>Cadastro de pacientes</h1>
+
+        {% for mensagem in get_flashed_messages() %}
+            <p class="mensagem">{{ mensagem }}</p>
+        {% endfor %}
+
+        <!-- Formulário de cadastro -->
+        <form method="POST">
+            <label>Nome</label>
+            <input name="nome" required>
+
+            <label>CPF</label>
+            <input name="cpf" required>
+
+            <label>Data de nascimento</label>
+            <input type="date" name="data_nascimento">
+
+            <label>Telefone</label>
+            <input name="telefone">
+
+            <label>E-mail</label>
+            <input type="email" name="email">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <!-- Lista de pacientes -->
+        <h2>Pacientes cadastrados</h2>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente["nome"] }}</td>
+                <td>{{ paciente["cpf"] }}</td>
+                <td>{{ paciente["telefone"] }}</td>
+                <td>
+                    <a href="/pacientes/editar/{{ paciente['id_paciente'] }}">Editar</a>
+                    <a href="/pacientes/excluir/{{ paciente['id_paciente'] }}"
+                       onclick="return confirm('Deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

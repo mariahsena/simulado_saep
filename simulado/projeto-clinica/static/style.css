@@ -1,0 +1,137 @@
+/* Estilo geral de todas as páginas */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #263445;
+}
+
+/* Área principal */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #1769aa;
+}
+
+/* Menu de navegação */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 15px;
+    background-color: #1769aa;
+}
+
+/* Links do menu */
+.menu a {
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Cor ao passar o mouse */
+.menu a:hover {
+    background-color: #104d80;
+    border-radius: 5px;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Campos de texto */
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botões */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1769aa;
+    color: white;
+    cursor: pointer;
+}
+
+/* Efeito do botão */
+button:hover {
+    background-color: #104d80;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Células da tabela */
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #e3effa;
+}
+
+/* Mensagens */
+.mensagem {
+    padding: 10px;
+    background-color: #e0f7e9;
+    color: #176b38;
+}
+
+/* Mensagens de erro */
+.erro {
+    padding: 10px;
+    background-color: #ffe5e5;
+    color: #a40000;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+}
+
+/* Deixa o formulário mais estreito e centralizado */
+form {
+    max-width: 350px;
+    margin: 50px auto; 
+}
+
+/* Ajusta a largura dos campos */
+input {
+    width: 100%; 
+    box-sizing: border-box; 
+    
+}
+
+/* Centraliza os títulos */
+h1, h2 {
+    text-align: center;
+}

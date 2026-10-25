@@ -1,0 +1,65 @@
+CREATE TABLE "medico" (
+	"id_medico"	INTEGER,
+	"nome"	varchar(150),
+	"crm"	varchar(45) NOT NULL,
+	"especialidade"	varchar(60),
+	"email"	varchar(120),
+	PRIMARY KEY("id_medico" AUTOINCREMENT)
+);
+
+CREATE TABLE "paciente" (
+	"id_paciente"	INTEGER,
+	"nome"	varchar(100),
+	"cpf"	varchar(20),
+	"data_nascimento"	date,
+	"telefone"	varchar(45),
+	"email"	varchar(120),
+	PRIMARY KEY("id_paciente" AUTOINCREMENT)
+);
+
+CREATE TABLE "usuario" (
+	"id_usuario"	INTEGER,
+	"nome"	varchar(80),
+	"email"	varchar(45),
+	"senha_hash"	varchar(255) NOT NULL,
+	"perfil"	varchar(45),
+	PRIMARY KEY("id_usuario" AUTOINCREMENT)
+);
+
+
+CREATE TABLE "agendamento" (
+	"id_agendamento"	INTEGER,
+	"id_paciente"	INTEGER,
+	"id_medico"	INTEGER,
+	"data_consulta"	date,
+	"hora_consulta"	time,
+	"observacao"	varchar(255),
+	PRIMARY KEY("id_agendamento" AUTOINCREMENT),
+	FOREIGN KEY("id_medico") REFERENCES "medico"("id_medico"),
+	FOREIGN KEY("id_paciente") REFERENCES "paciente"("id_paciente")
+);
+
+
+------------------------------------------------------------------------------
+
+
+INSERT INTO usuario (nome, email, senha_hash, perfil) 
+	values ('João', 'joao@gmail.com', '123', 'usuario'),
+	       ('Maria', 'maria@gmail.com','211','usuario'),
+	       ('Ricardo', 'ricardo@gmail.com','321', 'admin');
+		   
+INSERT into paciente (nome,cpf,data_nascimento,telefone,email)
+    values ('Ronaldo', '123.123.322-22', '1987-04-25', '(11) 92345-3333', 'ronaldo@gmail.com'),
+		   ('Rosenildo', '323.123.322-22', '1987-04-25', '(11) 92345-3333', 'rosenildo@gmail.com'),
+		   ('Nivaldo', '321.123.322-22', '1987-04-25', '(11) 92345-3333', 'nivaldo@gmail.com');
+
+INSERT INTO MEDICO (nome, crm, especialidade, email)
+    values ('Geraldo', '12312', 'Clinico', 'geraldo@gmail.com'),
+	       ('Rosemerie', '322', 'Ortopedia', 'rose@gmail.com'),
+		   ('Victoria', '4353', 'Clinico', 'geraldo@gmail.com');
+	
+insert into agendamento (id_paciente, id_medico, data_consulta, hora_consulta, observacao)
+    values (1, 1, '2026-10-09', '08:00', 'Retorno do paciente'),
+	       (1, 2, '2026-05-20', '12:00', 'Emergência'),
+	       (2, 1, '2026-03-23', '18:00', 'Consulta');
+	

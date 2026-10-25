@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Clínica Vida</title>
+
+    <!-- Carrega o arquivo de estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Clínica Vida</h1>
+        <h2>Entrar no sistema</h2>
+
+        <!-- Mostra mensagens de erro ou sucesso -->
+        {% for mensagem in get_flashed_messages() %}
+            <p class="mensagem">{{ mensagem }}</p>
+        {% endfor %}
+
+        <!-- Envia o e-mail e a senha para o app.py -->
+        <form method="POST">
+            <label>E-mail</label>
+            <input type="email" name="email" required>
+
+            <label>Senha</label>
+            <input type="password" name="senha" required>
+
+            <button type="submit">Acessar</button>
+        </form>
+    </div>
+</body>
+</html>
